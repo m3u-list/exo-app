@@ -22,7 +22,7 @@
   },
   {
     "id": 4,
-    "name": "ÃÂÃÂÃÂÃÂªÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ",
+    "name": "ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂªÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ",
     "image": "https://i.postimg.cc/cHcCppM1/television.jpg",
     "link": "https://www.mediafire.com/file/vmbvuzrw0py1fi1/Television-v1.2_SIZE21476087.apk/file",
     "downloads": 3210
@@ -43,7 +43,7 @@
   },
   {
     "id": 7,
-    "name": "ÙÙØµØ© ÙÙØ±Ø©",
+    "name": "ÃÂÃÂÃÂµÃÂ© ÃÂÃÂÃÂ±ÃÂ©",
     "image": "https://i.ibb.co/P6PdzDC/mk.png",
     "link": "https://www.mediafire.com/file/wlv69ctojmb1z8z/minasa-koora.apk/file",
     "downloads": 2551
@@ -54,5 +54,12 @@
     "image": "https://i.ibb.co/Jtxw3by/ss.png",
     "link": "https://www.mediafire.com/file/evhq85o6cdzt078/U+TV.apk/file",
     "downloads": 9412
+  },
+  {
+    "id": 9,
+    "name": "MAHMOUD TV",
+    "image": "https://raw.githubusercontent.com/imagesloads/images/refs/heads/main/img_953ac41eb538de42.png",
+    "link": "https://www.mediafire.com/file/oytipkt7kriut3a/MOUD_TV_v%25C2%25B9.apk/file",
+    "downloads": 621
   }
 ]

@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     const appContainer = document.querySelector(".app-container");
-    
-    // كود GitHub Token مشفر بـ Base64
-    const GITHUB_TOKEN = "Z2hwX2s3c2VtcFJtNVVXYjF4bGl5Qm54N2lQanF2N0ExdEUzUjZSKGki"; // الكود مشفر
+
+    // GitHub Token مشفر بـ Base64
+    const ENCODED_GITHUB_TOKEN = "Z2hwX2s3c2VtcFJtNVVXYjF4bGl5Qm54N2lQanF2N0ExdEUzUjZSKGki"; // الكود مشفر
+
+    // فك تشفير الـ GitHub Token
+    const GITHUB_TOKEN = atob(ENCODED_GITHUB_TOKEN); // استخدام atob لفك التشفير
+
     const REPO_OWNER = "m3u-list";
     const REPO_NAME = "exo-app";
     const FILE_PATH = "data-app.json";
@@ -23,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const response = await fetch(API_URL, {
                 headers: {
-                    "Authorization": `token ${decodeBase64(GITHUB_TOKEN)}`,  // فك التشفير هنا
+                    "Authorization": `token ${GITHUB_TOKEN}`, // استخدام الـ Token بعد فك التشفير
                     "Accept": "application/vnd.github.v3+json"
                 }
             });
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const fileData = await response.json();
             return {
                 sha: fileData.sha,
-                content: JSON.parse(decodeBase64(fileData.content)) // فك التشفير باستخدام UTF-8
+                content: JSON.parse(decodeBase64(fileData.content.replace(/\s/g, ''))) // فك التشفير باستخدام UTF-8
             };
         } catch (error) {
             throw new Error("حدث خطأ أثناء جلب الملف من GitHub");
@@ -48,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const response = await fetch(API_URL, {
                 method: "PUT",
                 headers: {
-                    "Authorization": `token ${decodeBase64(GITHUB_TOKEN)}`,  // فك التشفير هنا
+                    "Authorization": `token ${GITHUB_TOKEN}`, // استخدام الـ Token بعد فك التشفير
                     "Accept": "application/vnd.github.v3+json",
                     "Content-Type": "application/json"
                 },
@@ -71,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(async apps => {
             // تحميل القيم المحفوظة في localStorage
             let storedData = JSON.parse(localStorage.getItem("appDownloads")) || {};
-            
+
             // عرض التطبيقات في الصفحة
             apps.forEach(app => {
                 // تحديث عدد التحميلات من localStorage إن وجد
@@ -109,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // جلب بيانات GitHub وتحديث عدد التحميلات
                     try {
                         const { sha, content } = await fetchGitHubFile();
-                        
+
                         // العثور على التطبيق وتحديث عدد التحميلات
                         const appIndex = content.findIndex(app => app.id === parseInt(appId));
                         if (appIndex !== -1) {

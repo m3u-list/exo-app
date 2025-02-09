@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-const _0x465509=_0x1da9;function _0x1da9(_0x2c870a,_0x143319){const _0x5c20bb=_0x49e0();return _0x1da9=function(_0x49f194,_0xc985ed){_0x49f194=_0x49f194-(-0x22*-0xb5+0x2644+-0x3cf9);let _0x2f8e23=_0x5c20bb[_0x49f194];return _0x2f8e23;},_0x1da9(_0x2c870a,_0x143319);}(function(_0x131c6f,_0x23a5fd){const _0x44f50a=_0x1da9,_0xa523ae=_0x131c6f();while(!![]){try{const _0x4568ab=-parseInt(_0x44f50a(0x156))/(-0x550+-0xf*0x167+0x1a5a)+parseInt(_0x44f50a(0x161))/(0x1e35*-0x1+-0x400*-0x3+0x1237)+parseInt(_0x44f50a(0x15b))/(0x2457+-0x3ee+-0x2066)+-parseInt(_0x44f50a(0x162))/(0x3e8+0x1ed1*-0x1+0x3d*0x71)*(-parseInt(_0x44f50a(0x16d))/(0x20bc+0x65*-0x3e+-0x841*0x1))+parseInt(_0x44f50a(0x15f))/(-0xbab+0x1*0xc4d+0x3*-0x34)+-parseInt(_0x44f50a(0x164))/(0x1f29+0x15d3*0x1+-0x34f5)+parseInt(_0x44f50a(0x168))/(-0x94a+0x1d0a+0x2*-0x9dc)*(-parseInt(_0x44f50a(0x16c))/(-0x25bb*-0x1+-0x23be+-0x1f4));if(_0x4568ab===_0x23a5fd)break;else _0xa523ae['push'](_0xa523ae['shift']());}catch(_0x5bd4e0){_0xa523ae['push'](_0xa523ae['shift']());}}}(_0x49e0,0x51980+0x2c8e*-0x10+-0x10601*-0x1));const appContainer=document[_0x465509(0x169)+_0x465509(0x16a)](_0x465509(0x159)+_0x465509(0x167)),GITHUB_TOKEN=_0x465509(0x160)+_0x465509(0x15d)+_0x465509(0x16b)+_0x465509(0x157),REPO_OWNER=_0x465509(0x165),REPO_NAME=_0x465509(0x15c),FILE_PATH=_0x465509(0x166)+_0x465509(0x155),API_URL=_0x465509(0x15e)+_0x465509(0x163)+_0x465509(0x15a)+REPO_OWNER+'/'+REPO_NAME+_0x465509(0x158)+FILE_PATH;function _0x49e0(){const _0x889c64=['.app-conta','om/repos/','1260822kBzdpL','exo-app','Rm5UW8xliy','https://ap','1762908nQaSaj','ghp_k7semp','855924vqQPOQ','125356xqPxDh','i.github.c','1770244kJivCw','m3u-list','data-app.j','iner','100088lOLYsQ','querySelec','tor','Bnx7iPjqv7','549RjdMkx','15qdrLks','son','1223CvGEYw','A1tI3R6HKi','/contents/'];_0x49e0=function(){return _0x889c64;};return _0x49e0();}
+    const appContainer = document.querySelector(".app-container");
+    
+    // كود GitHub Token مشفر بـ Base64
+    const GITHUB_TOKEN = "Z2hwX2s3c2VtcFJtNVVXYjF4bGl5Qm54N2lQanF2N0ExdEUzUjZSKGki"; // الكود مشفر
+    const REPO_OWNER = "m3u-list";
+    const REPO_NAME = "exo-app";
+    const FILE_PATH = "data-app.json";
+    const API_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`;
 
     // دالة ترميز UTF-8 إلى Base64
     function encodeBase64(str) {
@@ -16,7 +23,7 @@ const _0x465509=_0x1da9;function _0x1da9(_0x2c870a,_0x143319){const _0x5c20bb=_0
         try {
             const response = await fetch(API_URL, {
                 headers: {
-                    "Authorization": `token ${GITHUB_TOKEN}`,
+                    "Authorization": `token ${decodeBase64(GITHUB_TOKEN)}`,  // فك التشفير هنا
                     "Accept": "application/vnd.github.v3+json"
                 }
             });
@@ -41,7 +48,7 @@ const _0x465509=_0x1da9;function _0x1da9(_0x2c870a,_0x143319){const _0x5c20bb=_0
             const response = await fetch(API_URL, {
                 method: "PUT",
                 headers: {
-                    "Authorization": `token ${GITHUB_TOKEN}`,
+                    "Authorization": `token ${decodeBase64(GITHUB_TOKEN)}`,  // فك التشفير هنا
                     "Accept": "application/vnd.github.v3+json",
                     "Content-Type": "application/json"
                 },

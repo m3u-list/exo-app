@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const appContainer = document.querySelector(".app-container");
 
     // تحميل البيانات من JSON
-    fetch("https://raw.githubusercontent.com/m3u-list/exo-app/refs/heads/main/data-app.json")
+    fetch("https://cdn.jsdelivr.net/gh/m3u-list/exo-app@refs/heads/main/data-app.json")
         .then(response => response.json())
         .then(apps => {
             // تحميل القيم المحفوظة في localStorage

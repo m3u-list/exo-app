@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 appCard.innerHTML = `
                     <img src="${app.image}" alt="${app.name}">
                     <h2>${app.name}</h2>
-                    <a target="_blank" href="${app.link}" class="download-btn" data-id="${app.id}">تحميل</a>
+                    <a target="_blank" href="/h3-page/?id=${app.id}" class="download-btn" data-id="${app.id}">تحميل</a>
                     <div class="download-count">
                         <i class="fas fa-download"></i> <span id="count-${app.id}">${app.downloads}</span> تحميل
                     </div>
